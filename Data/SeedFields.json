@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "D55ED964-8C7B-4A41-91DC-97AD326CA4C3",
+    "ModelId": "BCABE751-00FA-45AC-BE0E-BDDDA6677463",
+    "Name": "Header Image",
+    "fieldType": "3"
+  },
+  {
+    "Id": "09C253B3-01B0-4DAF-9976-468B79EAFE29",
+    "ModelId": "BCABE751-00FA-45AC-BE0E-BDDDA6677463",
+    "Name": "Contributors",
+    "fieldType": "2"
+  },
+  {
+    "Id": "C1C79913-EBEC-4CA9-BDD1-968E0D802526",
+    "ModelId": "BCABE751-00FA-45AC-BE0E-BDDDA6677463",
+    "Name": "Content",
+    "fieldType": "1"
+  },
+  {
+    "Id": "177786D0-B8F2-4707-9773-BB5A011E66C1",
+    "ModelId": "BCABE751-00FA-45AC-BE0E-BDDDA6677463",
+    "Name": "Sub Title",
+    "fieldType": "0"
+  },
+  {
+    "Id": "48C05EC1-9A5C-4A5F-945A-DA8E1EE20FB7",
+    "ModelId": "BCABE751-00FA-45AC-BE0E-BDDDA6677463",
+    "Name": "Title",
+    "fieldType": "0"
+  }
+]

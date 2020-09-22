@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Field>
+
+<h1 class="display-4">Add Content</h1>
+<p>edit your content as you wish</p>
+
+<div class="d-flex justify-content-center">
+
+    <div class="col-8">
+
+        <form asp-action="Add"
+              method="post"
+              enctype="multipart/form-data">
+
+            <input hidden
+                   name="ModelId"
+                   value="@ViewData["ModelId"].ToString()" />
+
+            @foreach (var item in Model)
+            {
+
+                if (item.fieldType == FieldType.ShortText)
+                {
+                    <div class="form-group">
+                        <label>@item.Name</label>
+                        <input class="form-control"
+                               type="text"
+                               name="@item.Id" />
+                    </div>
+                }
+
+                if (item.fieldType == FieldType.LongText)
+                {
+                    <div class="form-group">
+                        <label>@item.Name</label>
+                        <textarea class="form-control"
+                                  maxlength="5000"
+                                  name="@item.Id">
+                </textarea>
+                    </div>
+                }
+
+                if (item.fieldType == FieldType.Number)
+                {
+                    <div class="form-group">
+                        <label>@item.Name</label>
+                        <input class="form-control"
+                               type="number"
+                               name="@item.Id" />
+                    </div>
+                }
+
+                if (item.fieldType == FieldType.File)
+                {
+                    <div class="form-group">
+
+                        <label>@item.Name</label>
+                        <div class="custom-file">
+                            <input type="file"
+                                class="custom-file-input"
+                                name="@item.Id">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                    
+                }
+            }
+
+            <button class="btn btn-primary btn-block my-4">
+                Add
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}

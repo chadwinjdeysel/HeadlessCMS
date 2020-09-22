@@ -1,0 +1,159 @@
+﻿@model FieldViewModel
+
+@section Styles {
+    <style>
+
+        .card {
+            min-height: 9em;
+        }
+
+            .card:hover {
+                transition: 0.5s;
+                border-color: var(--primary);
+            }
+
+        .card-button {
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+            .card-button:hover {
+                text-decoration: none;
+                color: var(--dark);
+            }
+    </style>
+}
+
+<div class="d-flex justify-content-between">
+
+    <h1 class="display-4">Fields ~ @Model.ModelName</h1>
+
+    <div>
+        <small>
+            <p class="my-2 text-muted">to call:</p>
+            <p class="my-2 text-muted">domain/api/content/index?id=@Model.ModelId</p>
+        </small>
+        
+    </div>
+</div>
+
+<p>add fields to define your models</p>
+
+<a asp-action="Add"
+   asp-controller="Content"
+   asp-route-id="@Model.ModelId"
+   class="btn btn-outline-primary my-4">
+    Add Content
+</a>
+
+<div class="row">
+
+    @foreach (var item in Model.Fields)
+    {
+        <div class="col-md-3 my-3">
+            <a href="#"
+               class="card-button">
+
+                <div class="card ">
+                    <div class="card-body">
+
+                        <h3 class="card-title ">@item.Name</h3>
+
+                        <p>@item.fieldType.ToString()</p>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+    <div class="col-md-3 my-3">
+        <a href="#"
+           data-toggle="modal" 
+           data-target="#add-field-modal"
+           class="card-button">
+
+            <div class="card ">
+                <div class="card-body d-flex align-items-center justify-content-center">
+
+                    <span class="oi text-muted" data-glyph="plus"></span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="modal fade" id="add-field-modal" tabindex="-1" role="dialog" aria-labelledby="add-field-modal" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add new Field</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-action="Add"
+                  asp-controller="Fields"
+                  method="post">
+
+                <input hidden asp-for="ModelId" />
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name"
+                               type="text"
+                               class="form-control"
+                               required />
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio"
+                                       asp-for="FieldType"
+                                       value="0"
+                                       checked>
+                                Short Text
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio"
+                                       asp-for="FieldType"
+                                       value="1">
+                                Long Text
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio"
+                                       asp-for="FieldType"
+                                       value="2">
+                                Number
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio"
+                                       asp-for="FieldType"
+                                       value="3">
+                                File
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Field</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

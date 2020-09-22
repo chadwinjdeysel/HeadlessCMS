@@ -1,0 +1,119 @@
+﻿@model ModelViewModel
+
+
+@section Styles {
+    <style>
+
+        .card {
+            min-height: 9em;
+        }
+
+        .card:hover {
+            transition: 0.5s;
+            border-color: var(--primary);
+
+        }
+
+        .card-button {
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .card-button:hover {
+            text-decoration: none;
+            color: var(--dark);
+        }
+    </style>
+}
+    <h1 class="display-4">Your Models</h1>
+    <p>click on model to view and edit fields</p>
+
+<div class="row my-5">
+
+    @foreach(var item in Model.Models)
+    {
+
+    <div class="col-md-3">
+        <a asp-action="Index"
+           asp-controller="Fields"
+           asp-route-id="@item.Id"
+           class="card-button">
+
+            <div class="card ">
+                <div class="card-body">
+
+                    <h3 class="card-title ">@item.Name</h3>
+
+                    <p>@item.Description</p>
+
+                </div>
+            </div>
+        </a>
+    </div>
+        
+    }
+
+<div class="col-md-3">
+    <a href="#"
+       data-toggle="modal" 
+       data-target="#add-model-modal"
+       class="card-button">
+
+        <div class="card">
+
+            <div class="card-body d-flex align-items-center justify-content-center">
+
+                <span class="oi text-muted" data-glyph="plus"></span>
+            </div>
+        </div>
+    </a>
+</div>
+   
+</div>
+
+
+<div class="modal fade" id="add-model-modal" tabindex="-1" role="dialog" aria-labelledby="add-model-modal" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add new Model</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-action="Add"
+                  asp-controller="Models"
+                  method="post">
+
+                
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label asp-for="ModelToAdd.Name"></label>
+                        <input asp-for="ModelToAdd.Name"
+                               type="text"
+                               class="form-control"
+                               required />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ModelToAdd.Description"></label>
+                        <textarea asp-for="ModelToAdd.Description"
+                                  class="form-control"
+                                  required>
+                        </textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Model</button>
+                </div>
+
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+

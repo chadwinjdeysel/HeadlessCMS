@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Model>
+
+
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a asp-action="Index"
+           asp-controller="Fields"
+           asp-route-id="@item.Id"
+           class="nav-link">
+            @item.Name
+        </a>
+    </li>
+}
+
