@@ -1,4 +1,4 @@
-# Headless CMS
+# Asp.Net Core Headless Content Managemnet System :boom:
 A fully modular, reusable and headless content management system that allows you to structure your content and send it to any source in JSON format.
 
 ## How to use
@@ -17,3 +17,6 @@ dotnet run
 To run the app, you will need the following installed
 * .Net Core SDK 3.0 or greater. Find out more [here](https://dotnet.microsoft.com/download)
 * DB Browser for SQLite to view database. Find out more [here](https://sqlitebrowser.org/)
+
+## Project Status
+This project is a proof of concept and is still in development :sparkles:
