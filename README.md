@@ -1,4 +1,4 @@
-# Asp.Net Core Headless Content Managemnet System :boom:
+# Asp.Net Core Headless Content Managment System :boom:
 A fully modular, reusable and headless content management system that allows you to structure your content and send it to any source in JSON format.
 
 ## How to use
