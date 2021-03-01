@@ -6,8 +6,12 @@ A fully modular, reusable and headless content management system that allows you
 ```
 $ git clone https://github.com/chadwinjdeysel/HeadlessCMS.git
 ```
-2. Open the project folder in Powershell
-3. Run the project
+2. Open the solution folder in your terminal of choice
+3. Enter the project folder 
+```
+cd ContentManagementSystem
+```
+5. Run the project
 ```
 dotnet run
 ```
